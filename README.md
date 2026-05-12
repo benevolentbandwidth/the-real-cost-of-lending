@@ -2,13 +2,11 @@
 
 Cloud Run starter backend for the Benevolent Bandwidth Real Cost of Lending Lens / SmartLend project.
 
-## Project
+## Deployment
 
-- GCP project: `b2-lending-lens`
-- Region: `us-east1`
-- Runtime service account: `ll-app-service@b2-lending-lens.iam.gserviceaccount.com`
-- Storage bucket: `b2-foundation`
-- Storage prefix: `lending-lens/`
+This service is designed to run on Google Cloud Run using a Dockerfile-based build.
+
+Runtime configuration is provided through environment variables and Google Cloud IAM. Infrastructure-specific values such as project IDs, service accounts, storage buckets, and storage prefixes are intentionally omitted from this public README.
 
 ## Purpose
 
@@ -65,14 +63,14 @@ POST /api/v1/whatsapp/webhook
 
 ## Cloud Run settings
 
-Use:
+Use these settings as a template:
 
 ```text
-Region: us-east1
-Service account: ll-app-service@b2-lending-lens.iam.gserviceaccount.com
+Region: <cloud-run-region>
+Service account: <runtime-service-account>
 Min instances: 0
 Max instances: 3
-Authentication: Allow unauthenticated invocations for initial public testing
+Authentication: Choose based on the deployment environment
 ```
 
 ## PRD
@@ -92,4 +90,3 @@ Do not commit private internal notes or unapproved source PDFs.
 - Do not hardcode API keys.
 - Use Secret Manager for future third-party API keys.
 - Use Cloud Run service identity for Google Cloud APIs.
-
